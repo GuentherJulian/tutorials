@@ -1,0 +1,33 @@
+= Angular progressive web apps
+====
+In this scenario you will create an Angular progressive web application (PWAs). PWAs offer better user experience than the traditional ones. In general, they solve problems related with reliability and speed:
+
+Reliability: PWAs are stable. In this context stability means than even with slow connections or even with no network at all, the application still works. To achieve this, some basic resources like styles, fonts, requests are stored. Due to this caching, it is not possible to assure that the content is always up-to-date.
+
+Speed: When an users opens an application, he or she will expect it to load almost immediately (almost 53% of users abandon sites that take longer that 3 seconds, source: https://developers.google.com/web/progressive-web-apps/#fast).
+
+PWAs uses a script called service worker (https://developers.google.com/web/fundamentals/primers/service-workers/), which runs in background and essentially act as proxy between web app and network, intercepting requests and acting depending on the network conditions.
+====
+
+In the first step we install the Angular CLI, which is needed to create a new Angular project. Then we create our new Angular application.
+[step]
+== Install Angular CLI and create the application
+--
+npmInstall("", {"name": "@angular/cli", "global": true})
+createDevon4ngProject("example-pwa")
+--
+
+Our Angular application will get the data from an external application. For this we will use the My Thai Star sample application.
+[step]
+== Clone My Thai Star repository
+--
+cloneRepository("https://github.com/devonfw/my-thai-star.git")
+--
+
+After cloning the application we have to start the backend server we will get the data from.
+[step]
+== Build and run the My Thai Star backend
+--
+buildJava("my-thai-star/java/mtsj")
+runServerJava("my-thai-star/java/mtsj/server")
+--
